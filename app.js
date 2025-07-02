@@ -16,6 +16,7 @@ const {
 const auditLoggerInterceptResponse = require("./middlewares/audit-log.middleware");
 
 app.use(cors());
+app.use(express.json());
 app.set('trust proxy', 1);
 
 app.use(helmet());
