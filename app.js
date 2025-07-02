@@ -2,9 +2,7 @@ const helmet = require("helmet");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = 3000;
-
-app.use(cors());
+const port = process.env.PORT || 3000;
 
 const login = require("./routes/login");
 const register = require("./routes/register");
@@ -16,6 +14,9 @@ const {
   registerLimiter,
 } = require("./middlewares/rateLimit.middleware");
 const auditLoggerInterceptResponse = require("./middlewares/audit-log.middleware");
+
+app.use(cors());
+app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(auditLoggerInterceptResponse);
