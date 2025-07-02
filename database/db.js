@@ -11,6 +11,7 @@ let auditlogcollection;
 
 async function connectToDatabase() {
   try {
+    await client.connect();
     database = client.db("auth_db");
     collection = database.collection("users");
     auditlogcollection = database.collection("auditlogs");
