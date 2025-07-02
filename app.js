@@ -1,7 +1,10 @@
 const helmet = require("helmet");
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 const login = require("./routes/login");
 const register = require("./routes/register");
